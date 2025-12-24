@@ -8,7 +8,7 @@ import "./App.css";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Products from "./pages/Products";
 
