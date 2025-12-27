@@ -1,16 +1,12 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from "react-router-dom";
-import "./App.css";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import HomePage from "./pages/HomePage";
 import Products from "./pages/Products";
+import NotFound from "./pages/NotFound";
+
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -18,30 +14,34 @@ export default function App() {
 
   return (
     <Router>
-      <div className="max-w-4xl mx-auto">
-        <nav className="p-4 flex gap-4 border-b">
-          <NavLink exact to="/" activeClassName="font-semibold underline">
-            Home
-          </NavLink>
-          <NavLink to="/products" activeClassName="font-semibold underline">
-            Products
-          </NavLink>
-        </nav>
+      {/* Layout wrapper */}
+      <div className="min-h-screen flex flex-col">
+        {/* Single global header */}
+        <Header />
 
-        <button
-          className="ml-auto px-3 py-1 border rounded"
-          onClick={() =>
-            dispatch({ type: "APP/SET_LOADING", payload: !loading })
-          }
-        >
-          loading: {String(loading)}
-        </button>
+        {/* Page content */}
+        <main className="flex-1">
+          <div className="max-w-4xl mx-auto">
+            {/* Debug button (geçici) */}
+            <button
+              className="ml-auto mt-4 px-3 py-1 border rounded"
+              onClick={() =>
+                dispatch({ type: "APP/SET_LOADING", payload: !loading })
+              }
+            >
+              loading: {String(loading)}
+            </button>
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/products" component={Products} />
-          <Route component={NotFound} />
-        </Switch>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/products" component={Products} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </main>
+
+        {/* Single global footer */}
+        <Footer />
       </div>
     </Router>
   );
