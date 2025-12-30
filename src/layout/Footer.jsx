@@ -15,7 +15,7 @@ export default function Footer() {
           </div>
 
           <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
-            Contact Us
+            Contact Us.
           </button>
         </div>
 
