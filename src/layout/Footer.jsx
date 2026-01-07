@@ -1,8 +1,7 @@
 export default function Footer() {
   return (
     <footer className="border-t mt-8 bg-[#1f2a44] text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 py-16">
-
+      <div className="w-full max-w-7xl mx-auto px-4 py-16">
         {}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-16">
           <div>
@@ -21,7 +20,6 @@ export default function Footer() {
 
         {}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-
           <div>
             <h3 className="text-white font-semibold mb-4">Company Info</h3>
             <ul className="space-y-2 text-sm">
@@ -73,7 +71,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
         </div>
 
         {}
@@ -86,7 +83,6 @@ export default function Footer() {
             <span className="cursor-pointer hover:text-white">ⓣ</span>
           </div>
         </div>
-
       </div>
     </footer>
   );

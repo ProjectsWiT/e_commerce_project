@@ -3,35 +3,56 @@ import { NavLink } from "react-router-dom";
 export default function Header() {
   return (
     <header className="border-b bg-white">
-      <div className="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
-        {/* Logo / Brand */}
-        <NavLink exact to="/" className="font-semibold text-lg">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-12 lg:px-24 h-14 flex items-center justify-between">
+        {/* Brand */}
+        <NavLink exact to="/" className="font-semibold text-lg text-gray-900">
           ProjectWiT
         </NavLink>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex gap-6 text-sm">
-          <NavLink exact to="/" activeClassName="font-semibold underline">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
+          <NavLink
+            exact
+            to="/"
+            activeClassName="font-semibold text-gray-900 underline"
+          >
             Home
           </NavLink>
-
-          <NavLink to="/products" activeClassName="font-semibold underline">
+          <NavLink
+            to="/shop"
+            activeClassName="font-semibold text-gray-900 underline"
+          >
             Shop
           </NavLink>
-
-          {/* Placeholder links */}
-          <span className="cursor-not-allowed text-gray-400">About</span>
-          <span className="cursor-not-allowed text-gray-400">Blog</span>
-          <span className="cursor-not-allowed text-gray-400">Contact</span>
-          <span className="cursor-not-allowed text-gray-400">Pages</span>
+          <NavLink
+            to="/about"
+            activeClassName="font-semibold text-gray-900 underline"
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/contact"
+            activeClassName="font-semibold text-gray-900 underline"
+          >
+            Contact
+          </NavLink>
+          <NavLink
+            to="/team"
+            activeClassName="font-semibold text-gray-900 underline"
+          >
+            Team
+          </NavLink>
         </nav>
 
-        {/* Actions (placeholder) */}
+        {/* Actions (MVP placeholders) */}
         <div className="flex items-center gap-3 text-sm text-gray-500">
-          <span className="cursor-not-allowed">Login</span>
-          <span className="cursor-not-allowed">Search</span>
-          <span className="cursor-not-allowed">Cart</span>
-          <span className="cursor-not-allowed">Like</span>
+          {/* Mobile: tek placeholder */}
+          <span className="md:hidden cursor-not-allowed">Menu</span>
+
+          {/* Desktop: placeholder aksiyonlar */}
+          <span className="hidden md:inline cursor-not-allowed">Search</span>
+          <span className="hidden md:inline cursor-not-allowed">Cart</span>
+          <span className="hidden md:inline cursor-not-allowed">Login</span>
         </div>
       </div>
     </header>

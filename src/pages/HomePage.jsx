@@ -1,23 +1,17 @@
-import HeroSlider from "../components/HeroSlider";
+import HomeHero from "../components/home/HomeHero";
+import HomeCategories from "../components/home/HomeCategories";
+import HomeProducts from "../components/home/HomeProducts";
+import HomeBrands from "../components/home/HomeBrands";
+import HomeCTA from "../components/home/HomeCTA";
 
 export default function HomePage() {
   return (
-    <>
-      {/* Hero Slider (WT-16) */}
-      <HeroSlider />
-
-      {/* Page Content (WT-14 standardı) */}
-      <section className="px-4 md:px-12 lg:px-24 py-10">
-        <h1 className="text-3xl font-semibold text-white mb-6">
-          Home
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="h-40 bg-gray-700 rounded" />
-          <div className="h-40 bg-gray-700 rounded" />
-          <div className="h-40 bg-gray-700 rounded" />
-        </div>
-      </section>
-    </>
+    <div className="flex flex-col gap-10">
+      <HomeHero />
+      <HomeCategories />
+      <HomeProducts />
+      <HomeBrands />
+      <HomeCTA />
+    </div>
   );
 }

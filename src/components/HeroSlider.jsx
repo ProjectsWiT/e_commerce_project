@@ -16,34 +16,35 @@ const slides = [
   {
     id: 2,
     title: "Fresh Products Every Day",
-    description:
-      "Quality groceries delivered straight to your door.",
+    description: "Quality groceries delivered straight to your door.",
     cta: "Shop Now",
   },
   {
     id: 3,
     title: "Best Prices Guaranteed",
-    description:
-      "Save more with our daily deals and discounts.",
+    description: "Save more with our daily deals and discounts.",
     cta: "Discover",
   },
 ];
 
 export default function HeroSlider() {
   return (
-    <section className="w-full bg-gray-800">
+    <section className="w-screen relative left-1/2 -translate-x-1/2 bg-gray-800 overflow-hidden">
       <Swiper
+        className="w-full h-[420px] md:h-[480px] lg:h-[520px]"
         modules={[Navigation, Pagination, Autoplay]}
+        slidesPerView={1}
+        spaceBetween={0}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 4000 }}
         loop
-        className="h-[420px] md:h-[480px] lg:h-[520px]"
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
+          <SwiperSlide key={slide.id} className="!w-full">
             <div className="h-full flex items-center">
-              <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-24 text-white">
+              {/* İç container */}
+              <div className="w-full max-w-7xl mx-auto px-4 md:px-12 lg:px-24 text-white">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                   {slide.title}
                 </h2>
@@ -52,7 +53,7 @@ export default function HeroSlider() {
                   {slide.description}
                 </p>
 
-                <button className="mt-6 inline-block bg-blue-500 px-6 py-3 rounded">
+                <button className="mt-6 bg-blue-500 px-6 py-3 rounded">
                   {slide.cta}
                 </button>
               </div>
