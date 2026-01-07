@@ -5,61 +5,55 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const slides = [
-  {
-    id: 1,
-    title: "Groceries Delivered Fast",
-    description:
-      "We know how large objects will act, but things on a small scale.",
-    cta: "Start Now",
-  },
-  {
-    id: 2,
-    title: "Fresh Products Every Day",
-    description:
-      "Quality groceries delivered straight to your door.",
-    cta: "Shop Now",
-  },
-  {
-    id: 3,
-    title: "Best Prices Guaranteed",
-    description:
-      "Save more with our daily deals and discounts.",
-    cta: "Discover",
-  },
-];
-
 export default function HeroSlider() {
   return (
-    <section className="w-full bg-gray-800">
+    <div className="w-full">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 4000 }}
         loop
-        className="h-[420px] md:h-[480px] lg:h-[520px]"
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        navigation
+        className="h-[420px] md:h-[520px] lg:h-[600px]"
       >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div className="h-full flex items-center">
-              <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-24 text-white">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                  {slide.title}
-                </h2>
+        {/* SLIDE 1 */}
+        <SwiperSlide>
+          <div
+            className="relative h-full bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url(https://images.unsplash.com/photo-1542838132-92c53300491e)",
+            }}
+          >
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40" />
 
-                <p className="mt-4 max-w-xl text-white/80">
-                  {slide.description}
+            {/* Content */}
+            <div className="relative z-10 h-full flex items-center">
+              <div className="max-w-7xl mx-auto px-6 text-white">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                  Groceries Delivery
+                </h1>
+
+                <p className="max-w-md mb-6 text-base md:text-lg">
+                  Fresh groceries delivered to your door.
                 </p>
 
-                <button className="mt-6 inline-block bg-blue-500 px-6 py-3 rounded">
-                  {slide.cta}
+                <button className="bg-blue-600 px-6 py-3 rounded hover:bg-blue-700 transition">
+                  Start Now
                 </button>
               </div>
             </div>
-          </SwiperSlide>
-        ))}
+          </div>
+        </SwiperSlide>
+
+        {/* SLIDE 2 (placeholder) */}
+        <SwiperSlide>
+          <div className="h-full bg-gray-900 flex items-center justify-center text-white text-3xl">
+            Slide 2
+          </div>
+        </SwiperSlide>
       </Swiper>
-    </section>
+    </div>
   );
 }
